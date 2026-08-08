@@ -2,7 +2,7 @@ import streamlit as st
 
 from authentication.login import show_login
 from authentication.signup import show_signup
-from pages.dashboard import show_dashboard
+from dashboard.dashboard import show_dashboard
 
 
 # --------------------------------------------------
