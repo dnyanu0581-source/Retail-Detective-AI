@@ -1,15 +1,19 @@
 # Python
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
 
 # Virtual Environment
 venv/
-
-# VS Code
-.vscode/
+.venv/
 
 # Environment Variables
 .env
+.env.*
+
+# VS Code
+.vscode/
 
 # Uploaded Files
 uploads/
@@ -22,6 +26,10 @@ models/
 
 # Jupyter
 .ipynb_checkpoints/
+
+# Generated / Temporary Files
+*.tmp
+*.log
 
 # Operating System
 .DS_Store

@@ -1,5 +1,10 @@
+
 import streamlit as st
-from authentication.auth import get_user_by_email, verify_password
+
+from authentication.auth import (
+    get_user_by_email,
+    verify_password
+)
 
 
 def show_login():
@@ -17,30 +22,55 @@ def show_login():
         key="login_password"
     )
 
-    if st.button("Login", width="stretch"):
+    if st.button(
+        "Login",
+        key="login_button",
+        use_container_width=True
+    ):
 
-        # Empty Fields
+        # --------------------------------------------------
+        # Validate fields
+        # --------------------------------------------------
+
         if not email or not password:
             st.error("Please enter your email and password.")
             return
 
-        # Fetch user
+        email = email.strip().lower()
+
+        # --------------------------------------------------
+        # Get user from PostgreSQL
+        # --------------------------------------------------
+
         user = get_user_by_email(email)
 
         if user is None:
             st.error("No account found with this email.")
             return
 
-        # Verify Password
-        if verify_password(password, user["password_hash"]):
+        # --------------------------------------------------
+        # Verify password
+        # --------------------------------------------------
 
-            st.session_state.logged_in = True
-            st.session_state.user_id = user["id"]
-            st.session_state.username = user["username"]
-            st.session_state.email = user["email"]
-
-            st.success(f"Welcome, {user['username']}!")
-            st.rerun()
-
-        else:
+        if not verify_password(
+            password,
+            user["password_hash"]
+        ):
             st.error("Incorrect password.")
+            return
+
+        # --------------------------------------------------
+        # Set authenticated session
+        # --------------------------------------------------
+
+        st.session_state.logged_in = True
+        st.session_state.user_id = user["id"]
+        st.session_state.username = user["username"]
+        st.session_state.email = user["email"]
+
+        # --------------------------------------------------
+        # Redirect to dashboard
+        # --------------------------------------------------
+
+        st.rerun()
+
