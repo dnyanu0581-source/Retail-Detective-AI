@@ -1,0 +1,1780 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Retail Detective AI - Retail data investigation and intelligence platform"
+    >
+
+    <title>Retail Detective AI</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+</head>
+
+<body>
+
+<!-- =========================================================
+     GLOBAL TOAST
+========================================================= -->
+
+<div
+    id="toastContainer"
+    class="toast-container"
+    aria-live="polite"
+></div>
+
+
+<!-- =========================================================
+     AUTHENTICATION
+========================================================= -->
+
+<section
+    id="authPage"
+    class="auth-page"
+>
+
+    <div class="auth-container">
+
+        <div class="auth-brand">
+            <div class="brand-mark">R</div>
+
+            <div>
+                <strong>Retail Detective AI</strong>
+                <span>Retail Intelligence Platform</span>
+            </div>
+        </div>
+
+
+        <!-- LOGIN -->
+
+        <div
+            id="loginPage"
+            class="auth-card"
+        >
+
+            <div class="auth-heading">
+                <span class="eyebrow">WELCOME BACK</span>
+
+                <h1>Sign in to your workspace</h1>
+
+                <p>
+                    Continue investigating your retail data
+                    and discovering actionable insights.
+                </p>
+            </div>
+
+
+            <form
+                id="loginForm"
+                novalidate
+            >
+
+                <div class="input-group">
+
+                    <input
+                        id="email"
+                        type="email"
+                        placeholder=" "
+                        autocomplete="email"
+                        required
+                    >
+
+                    <label for="email">
+                        Email address
+                    </label>
+
+                </div>
+
+
+                <div class="input-group">
+
+                    <input
+                        id="password"
+                        type="password"
+                        placeholder=" "
+                        autocomplete="current-password"
+                        required
+                    >
+
+                    <label for="password">
+                        Password
+                    </label>
+
+                    <button
+                        type="button"
+                        class="password-toggle"
+                        data-target="password"
+                        aria-label="Show password"
+                    >
+                        Show
+                    </button>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="primary-btn full-btn"
+                >
+                    <span>Sign in</span>
+                    <span class="btn-arrow">→</span>
+                </button>
+
+
+                <div
+                    id="loginMessage"
+                    class="form-message"
+                ></div>
+
+            </form>
+
+
+            <div class="auth-divider">
+                <span>OR</span>
+            </div>
+
+
+            <button
+                id="googleLogin"
+                class="secondary-btn full-btn"
+                type="button"
+            >
+                <span class="google-icon">G</span>
+                Continue with Google
+            </button>
+
+
+            <p class="auth-switch">
+                Don't have an account?
+
+                <button
+                    type="button"
+                    id="showSignup"
+                    class="link-btn"
+                >
+                    Create account
+                </button>
+            </p>
+
+        </div>
+
+
+        <!-- SIGNUP -->
+
+        <div
+            id="signupPage"
+            class="auth-card hidden"
+        >
+
+            <div class="auth-heading">
+
+                <span class="eyebrow">GET STARTED</span>
+
+                <h1>Create your workspace</h1>
+
+                <p>
+                    Build a smarter understanding of your
+                    retail data.
+                </p>
+
+            </div>
+
+
+            <form
+                id="signupForm"
+                novalidate
+            >
+
+                <div class="input-group">
+
+                    <input
+                        id="signupUsername"
+                        type="text"
+                        placeholder=" "
+                        autocomplete="username"
+                        required
+                    >
+
+                    <label for="signupUsername">
+                        Username
+                    </label>
+
+                </div>
+
+
+                <div class="input-group">
+
+                    <input
+                        id="signupEmail"
+                        type="email"
+                        placeholder=" "
+                        autocomplete="email"
+                        required
+                    >
+
+                    <label for="signupEmail">
+                        Email address
+                    </label>
+
+                </div>
+
+
+                <div class="input-group">
+
+                    <input
+                        id="signupPassword"
+                        type="password"
+                        placeholder=" "
+                        autocomplete="new-password"
+                        required
+                    >
+
+                    <label for="signupPassword">
+                        Password
+                    </label>
+
+                    <button
+                        type="button"
+                        class="password-toggle"
+                        data-target="signupPassword"
+                    >
+                        Show
+                    </button>
+
+                </div>
+
+
+                <div class="input-group">
+
+                    <input
+                        id="signupConfirmPassword"
+                        type="password"
+                        placeholder=" "
+                        autocomplete="new-password"
+                        required
+                    >
+
+                    <label for="signupConfirmPassword">
+                        Confirm password
+                    </label>
+
+                </div>
+
+
+                <div
+                    id="passwordStrength"
+                    class="password-strength"
+                >
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <small>Use at least 8 characters.</small>
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="primary-btn full-btn"
+                >
+                    <span>Create account</span>
+                    <span class="btn-arrow">→</span>
+                </button>
+
+
+                <div
+                    id="signupMessage"
+                    class="form-message"
+                ></div>
+
+            </form>
+
+
+            <p class="auth-switch">
+
+                Already have an account?
+
+                <button
+                    type="button"
+                    id="showLogin"
+                    class="link-btn"
+                >
+                    Sign in
+                </button>
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     MAIN APPLICATION
+========================================================= -->
+
+<section
+    id="appPage"
+    class="app-page hidden"
+>
+
+
+    <!-- TOP NAVIGATION -->
+
+    <header class="topbar">
+
+        <div class="topbar-brand">
+
+            <div class="brand-mark small">
+                R
+            </div>
+
+            <div class="brand-copy">
+                <strong>Retail Detective AI</strong>
+                <span>Retail Intelligence</span>
+            </div>
+
+        </div>
+
+
+        <nav
+            class="main-nav"
+            id="mainNav"
+        >
+
+            <button
+                class="nav-item active"
+                data-page="overview"
+            >
+                <span>⌂</span>
+                Performance Overview
+            </button>
+
+            <button
+                class="nav-item"
+                data-page="dataset"
+            >
+                <span>▣</span>
+                Data Hub
+            </button>
+
+            <button
+                class="nav-item"
+                data-page="analytics"
+            >
+                <span>◈</span>
+                Explore Insights
+            </button>
+
+            <button
+                class="nav-item"
+                data-page="health"
+            >
+                <span>✓</span>
+                Data Health
+            </button>
+
+            <button
+                class="nav-item"
+                data-page="assistant"
+            >
+                <span>✦</span>
+                AI Analyst
+            </button>
+
+            <button
+                class="nav-item"
+                data-page="reports"
+            >
+                <span>▤</span>
+                Reports
+            </button>
+
+        </nav>
+
+
+        <div class="profile-area">
+
+            <button
+                id="profileBtn"
+                class="profile-btn"
+                type="button"
+            >
+
+                <span
+                    id="profileAvatar"
+                    class="avatar"
+                >
+                    U
+                </span>
+
+                <span
+                    id="topbarUsername"
+                    class="profile-name"
+                >
+                    User
+                </span>
+
+                <span class="chevron">
+                    ▾
+                </span>
+
+            </button>
+
+
+            <div
+                id="profileMenu"
+                class="profile-menu hidden"
+            >
+
+                <div class="profile-menu-header">
+
+                    <span
+                        id="menuUsername"
+                        class="avatar large"
+                    >
+                        U
+                    </span>
+
+                    <div>
+                        <strong id="menuName">
+                            User
+                        </strong>
+
+                        <small id="menuEmail">
+                            user@example.com
+                        </small>
+                    </div>
+
+                </div>
+
+                <button
+                    id="settingsBtn"
+                    type="button"
+                >
+                    ⚙ Settings
+                </button>
+
+                <button
+                    id="logoutBtn"
+                    type="button"
+                    class="logout-option"
+                >
+                    ↪ Sign out
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- MOBILE NAV -->
+
+    <div
+        id="mobileNav"
+        class="mobile-nav"
+    >
+
+        <button
+            id="mobileNavToggle"
+            type="button"
+        >
+            ☰ Navigation
+        </button>
+
+    </div>
+
+
+    <!-- MAIN CONTENT -->
+
+    <main class="main-content">
+
+
+        <!-- =====================================================
+             PERFORMANCE OVERVIEW
+        ====================================================== -->
+
+        <section
+            id="overviewPage"
+            class="page active-page"
+        >
+
+            <div class="page-header">
+
+                <div>
+
+                    <span class="eyebrow">
+                        RETAIL PERFORMANCE
+                    </span>
+
+                    <h1>
+                        Your retail performance at a glance.
+                    </h1>
+
+                    <p>
+                        Understand what is happening in your
+                        dataset and where your attention is needed.
+                    </p>
+
+                </div>
+
+                <button
+                    class="primary-btn"
+                    data-page="dataset"
+                    type="button"
+                >
+                    Upload dataset
+                    <span>↑</span>
+                </button>
+
+            </div>
+
+
+            <div
+                id="emptyOverview"
+                class="empty-state-card"
+            >
+
+                <div class="empty-icon">
+                    ◈
+                </div>
+
+                <h2>
+                    Your intelligence workspace is ready
+                </h2>
+
+                <p>
+                    Upload a retail CSV dataset and Retail
+                    Detective AI will analyze its structure,
+                    data quality, trends and opportunities.
+                </p>
+
+                <button
+                    class="primary-btn"
+                    data-page="dataset"
+                    type="button"
+                >
+                    Start with your dataset →
+                </button>
+
+            </div>
+
+
+            <div
+                id="overviewContent"
+                class="hidden"
+            >
+
+                <div class="insight-banner">
+
+                    <div class="banner-icon">
+                        ✦
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Executive Summary
+                        </strong>
+
+                        <p id="executiveSummary">
+                            Your dataset is ready for analysis.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="metricGrid"
+                    class="metric-grid"
+                ></div>
+
+
+                <div class="dashboard-grid">
+
+                    <div class="panel large-panel">
+
+                        <div class="panel-header">
+
+                            <div>
+                                <span class="section-kicker">
+                                    ATTENTION
+                                </span>
+
+                                <h2>
+                                    What needs your attention?
+                                </h2>
+                            </div>
+
+                            <span class="live-badge">
+                                ● LIVE
+                            </span>
+
+                        </div>
+
+                        <div
+                            id="attentionList"
+                            class="attention-list"
+                        ></div>
+
+                    </div>
+
+
+                    <div class="panel">
+
+                        <div class="panel-header">
+
+                            <div>
+                                <span class="section-kicker">
+                                    DATA STORY
+                                </span>
+
+                                <h2>
+                                    What your data says
+                                </h2>
+                            </div>
+
+                        </div>
+
+                        <div
+                            id="storyList"
+                            class="story-list"
+                        ></div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="panel recommendations-panel">
+
+                    <div class="panel-header">
+
+                        <div>
+                            <span class="section-kicker">
+                                DECISION SUPPORT
+                            </span>
+
+                            <h2>
+                                Recommended next actions
+                            </h2>
+                        </div>
+
+                    </div>
+
+                    <div
+                        id="recommendationList"
+                        class="recommendation-grid"
+                    ></div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             DATA HUB
+        ====================================================== -->
+
+        <section
+            id="datasetPage"
+            class="page"
+        >
+
+            <div class="page-header">
+
+                <div>
+
+                    <span class="eyebrow">
+                        DATA WORKSPACE
+                    </span>
+
+                    <h1>
+                        Bring your retail data into the workspace.
+                    </h1>
+
+                    <p>
+                        Upload a CSV file to begin investigation.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="upload-grid">
+
+                <div class="upload-card">
+
+                    <div
+                        id="dropZone"
+                        class="drop-zone"
+                    >
+
+                        <input
+                            type="file"
+                            id="datasetFile"
+                            accept=".csv,.xlsx"
+                            hidden
+                        >
+
+                        <div class="upload-icon">
+                            ↑
+                        </div>
+
+                        <h2>
+                            Drop your dataset here
+                        </h2>
+
+                        <p>
+                            or choose a file from your computer
+                        </p>
+
+                        <button
+                            id="chooseFileBtn"
+                            class="secondary-btn"
+                            type="button"
+                        >
+                            Choose file
+                        </button>
+
+                        <small>
+                            CSV supported directly • XLSX can be
+                            connected to the backend processor
+                        </small>
+
+                    </div>
+
+
+                    <div
+                        id="uploadProgress"
+                        class="upload-progress hidden"
+                    >
+
+                        <div class="progress-info">
+
+                            <span>
+                                Processing dataset
+                            </span>
+
+                            <strong id="progressPercent">
+                                0%
+                            </strong>
+
+                        </div>
+
+                        <div class="progress-track">
+                            <div
+                                id="progressBar"
+                                class="progress-bar"
+                            ></div>
+                        </div>
+
+                        <small id="progressStatus">
+                            Reading file...
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="dataset-info-card">
+
+                    <div class="info-icon">
+                        ✓
+                    </div>
+
+                    <h3>
+                        What happens after upload?
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            <span>01</span>
+                            Dataset structure is detected.
+                        </li>
+
+                        <li>
+                            <span>02</span>
+                            Data health is calculated.
+                        </li>
+
+                        <li>
+                            <span>03</span>
+                            Retail metrics are extracted.
+                        </li>
+
+                        <li>
+                            <span>04</span>
+                            Insights and anomalies are identified.
+                        </li>
+
+                        <li>
+                            <span>05</span>
+                            AI Analyst becomes dataset-aware.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+
+            <div
+                id="datasetWorkspace"
+                class="hidden"
+            >
+
+                <div class="panel">
+
+                    <div class="panel-header">
+
+                        <div>
+
+                            <span class="section-kicker">
+                                CURRENT DATASET
+                            </span>
+
+                            <h2 id="datasetName">
+                                Dataset
+                            </h2>
+
+                        </div>
+
+                        <div class="dataset-actions">
+
+                            <span
+                                id="datasetStatus"
+                                class="status-pill success"
+                            >
+                                ● Analyzed
+                            </span>
+
+                            <button
+                                id="replaceDatasetBtn"
+                                class="secondary-btn small-btn"
+                                type="button"
+                            >
+                                Replace
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        id="datasetStats"
+                        class="mini-stat-grid"
+                    ></div>
+
+
+                    <div class="table-wrapper">
+
+                        <table>
+
+                            <thead id="previewHead"></thead>
+
+                            <tbody id="previewBody"></tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             ANALYTICS
+        ====================================================== -->
+
+        <section
+            id="analyticsPage"
+            class="page"
+        >
+
+            <div class="page-header">
+
+                <div>
+
+                    <span class="eyebrow">
+                        BUSINESS INTELLIGENCE
+                    </span>
+
+                    <h1>
+                        Explore the patterns inside your data.
+                    </h1>
+
+                    <p>
+                        Every metric below is calculated from the
+                        dataset you uploaded.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div
+                id="analyticsEmpty"
+                class="empty-state-card"
+            >
+
+                <div class="empty-icon">
+                    ◈
+                </div>
+
+                <h2>
+                    No dataset to analyze yet
+                </h2>
+
+                <p>
+                    Upload a retail CSV to unlock your analytics.
+                </p>
+
+                <button
+                    class="primary-btn"
+                    data-page="dataset"
+                    type="button"
+                >
+                    Upload dataset →
+                </button>
+
+            </div>
+
+
+            <div
+                id="analyticsContent"
+                class="hidden"
+            >
+
+                <div class="analytics-tabs">
+
+                    <button
+                        class="analytics-tab active"
+                        data-analytics-tab="overview"
+                    >
+                        Overview
+                    </button>
+
+                    <button
+                        class="analytics-tab"
+                        data-analytics-tab="sales"
+                    >
+                        Sales
+                    </button>
+
+                    <button
+                        class="analytics-tab"
+                        data-analytics-tab="products"
+                    >
+                        Products
+                    </button>
+
+                    <button
+                        class="analytics-tab"
+                        data-analytics-tab="categories"
+                    >
+                        Categories
+                    </button>
+
+                    <button
+                        class="analytics-tab"
+                        data-analytics-tab="anomalies"
+                    >
+                        Anomalies
+                    </button>
+
+                </div>
+
+
+                <div
+                    id="analyticsOverviewTab"
+                    class="analytics-panel active"
+                >
+
+                    <div
+                        id="analyticsMetricGrid"
+                        class="metric-grid"
+                    ></div>
+
+
+                    <div class="chart-grid">
+
+                        <div class="panel chart-panel">
+
+                            <div class="panel-header">
+
+                                <div>
+
+                                    <span class="section-kicker">
+                                        PERFORMANCE
+                                    </span>
+
+                                    <h2>
+                                        Revenue by top products
+                                    </h2>
+
+                                </div>
+
+                            </div>
+
+                            <div
+                                id="productChart"
+                                class="bar-chart"
+                            ></div>
+
+                        </div>
+
+
+                        <div class="panel chart-panel">
+
+                            <div class="panel-header">
+
+                                <div>
+
+                                    <span class="section-kicker">
+                                        CATEGORY MIX
+                                    </span>
+
+                                    <h2>
+                                        Category contribution
+                                    </h2>
+
+                                </div>
+
+                            </div>
+
+                            <div
+                                id="categoryChart"
+                                class="bar-chart"
+                            ></div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="analyticsSalesTab"
+                    class="analytics-panel"
+                >
+
+                    <div class="panel">
+
+                        <div class="panel-header">
+
+                            <div>
+
+                                <span class="section-kicker">
+                                    SALES ANALYSIS
+                                </span>
+
+                                <h2>
+                                    Sales performance
+                                </h2>
+
+                            </div>
+
+                        </div>
+
+                        <div
+                            id="salesAnalysis"
+                            class="analysis-grid"
+                        ></div>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="analyticsProductsTab"
+                    class="analytics-panel"
+                >
+
+                    <div class="panel">
+
+                        <div class="panel-header">
+
+                            <div>
+
+                                <span class="section-kicker">
+                                    PRODUCT PERFORMANCE
+                                </span>
+
+                                <h2>
+                                    Product ranking
+                                </h2>
+
+                            </div>
+
+                        </div>
+
+                        <div
+                            id="productRanking"
+                            class="ranking-list"
+                        ></div>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="analyticsCategoriesTab"
+                    class="analytics-panel"
+                >
+
+                    <div class="panel">
+
+                        <div class="panel-header">
+
+                            <div>
+
+                                <span class="section-kicker">
+                                    CATEGORY ANALYSIS
+                                </span>
+
+                                <h2>
+                                    Category performance
+                                </h2>
+
+                            </div>
+
+                        </div>
+
+                        <div
+                            id="categoryRanking"
+                            class="ranking-list"
+                        ></div>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="analyticsAnomaliesTab"
+                    class="analytics-panel"
+                >
+
+                    <div class="panel">
+
+                        <div class="panel-header">
+
+                            <div>
+
+                                <span class="section-kicker">
+                                    DETECTION
+                                </span>
+
+                                <h2>
+                                    Unusual records
+                                </h2>
+
+                            </div>
+
+                        </div>
+
+                        <div
+                            id="anomalyList"
+                            class="attention-list"
+                        ></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             DATA HEALTH
+        ====================================================== -->
+
+        <section
+            id="healthPage"
+            class="page"
+        >
+
+            <div class="page-header">
+
+                <div>
+
+                    <span class="eyebrow">
+                        DATA RELIABILITY
+                    </span>
+
+                    <h1>
+                        Know whether your data is ready for decisions.
+                    </h1>
+
+                    <p>
+                        Identify quality problems before they affect
+                        your analysis.
+                    </p>
+
+                </div>
+
+                <button
+                    id="runHealthBtn"
+                    class="primary-btn"
+                    type="button"
+                >
+                    Recheck data
+                </button>
+
+            </div>
+
+
+            <div
+                id="healthEmpty"
+                class="empty-state-card"
+            >
+
+                <div class="empty-icon">
+                    ✓
+                </div>
+
+                <h2>
+                    Data Health is waiting for your dataset
+                </h2>
+
+                <p>
+                    Upload data to automatically check missing
+                    values, duplicates, formats and anomalies.
+                </p>
+
+                <button
+                    class="primary-btn"
+                    data-page="dataset"
+                    type="button"
+                >
+                    Open Data Hub →
+                </button>
+
+            </div>
+
+
+            <div
+                id="healthContent"
+                class="hidden"
+            >
+
+                <div class="health-hero panel">
+
+                    <div class="health-score">
+
+                        <div
+                            id="healthScoreCircle"
+                            class="score-circle"
+                        >
+                            <strong id="healthScore">
+                                0
+                            </strong>
+
+                            <span>
+                                / 100
+                            </span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="health-summary">
+
+                        <span class="section-kicker">
+                            DATA HEALTH
+                        </span>
+
+                        <h2 id="healthHeadline">
+                            Your dataset is being assessed.
+                        </h2>
+
+                        <p id="healthDescription">
+                            Quality analysis will appear here.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="healthMetrics"
+                    class="health-grid"
+                ></div>
+
+
+                <div class="panel">
+
+                    <div class="panel-header">
+
+                        <div>
+
+                            <span class="section-kicker">
+                                DETECTED ISSUES
+                            </span>
+
+                            <h2>
+                                Data quality findings
+                            </h2>
+
+                        </div>
+
+                    </div>
+
+                    <div
+                        id="healthIssues"
+                        class="issue-list"
+                    ></div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             AI ANALYST
+        ====================================================== -->
+
+        <section
+            id="assistantPage"
+            class="page"
+        >
+
+            <div class="page-header">
+
+                <div>
+
+                    <span class="eyebrow">
+                        AI ANALYST
+                    </span>
+
+                    <h1>
+                        Ask questions about your retail data.
+                    </h1>
+
+                    <p>
+                        Get answers grounded in the dataset currently
+                        loaded in your workspace.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="assistant-layout">
+
+                <aside class="assistant-sidebar panel">
+
+                    <span class="section-kicker">
+                        SUGGESTED QUESTIONS
+                    </span>
+
+                    <h3>
+                        Start investigating
+                    </h3>
+
+                    <div
+                        id="suggestionList"
+                        class="suggestion-list"
+                    >
+
+                        <button
+                            class="suggestion-chip"
+                            data-question="Summarize my dataset"
+                        >
+                            Summarize my dataset
+                        </button>
+
+                    </div>
+
+
+                    <div class="assistant-note">
+
+                        <span>✦</span>
+
+                        <p>
+                            The analyst only answers questions
+                            related to your uploaded retail data.
+                        </p>
+
+                    </div>
+
+                </aside>
+
+
+                <div class="assistant-main panel">
+
+                    <div
+                        id="chatMessages"
+                        class="chat-messages"
+                    >
+
+                        <div class="chat-welcome">
+
+                            <div class="ai-avatar">
+                                ✦
+                            </div>
+
+                            <h2>
+                                Your AI Analyst is ready.
+                            </h2>
+
+                            <p>
+                                Upload a dataset and ask me about
+                                sales, products, categories, trends,
+                                anomalies or data quality.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <form
+                        id="chatForm"
+                        class="chat-input-area"
+                    >
+
+                        <input
+                            id="chatInput"
+                            type="text"
+                            placeholder="Ask something about your retail data..."
+                            autocomplete="off"
+                        >
+
+                        <button
+                            type="submit"
+                            class="primary-btn chat-send"
+                        >
+                            Ask Analyst
+                            <span>→</span>
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             REPORTS
+        ====================================================== -->
+
+        <section
+            id="reportsPage"
+            class="page"
+        >
+
+            <div class="page-header">
+
+                <div>
+
+                    <span class="eyebrow">
+                        BUSINESS REPORTING
+                    </span>
+
+                    <h1>
+                        Turn your findings into a clear report.
+                    </h1>
+
+                    <p>
+                        Generate a report from the actual analysis
+                        performed on your dataset.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div
+                id="reportsEmpty"
+                class="empty-state-card"
+            >
+
+                <div class="empty-icon">
+                    ▤
+                </div>
+
+                <h2>
+                    Your report workspace is empty
+                </h2>
+
+                <p>
+                    Upload and analyze a dataset first.
+                </p>
+
+                <button
+                    class="primary-btn"
+                    data-page="dataset"
+                    type="button"
+                >
+                    Upload dataset →
+                </button>
+
+            </div>
+
+
+            <div
+                id="reportsContent"
+                class="hidden"
+            >
+
+                <div class="report-template-grid">
+
+                    <article class="report-template">
+
+                        <div class="template-icon blue">
+                            ◈
+                        </div>
+
+                        <span class="section-kicker">
+                            EXECUTIVE
+                        </span>
+
+                        <h2>
+                            Retail Performance Report
+                        </h2>
+
+                        <p>
+                            Executive summary, key metrics,
+                            findings, anomalies and recommended
+                            actions.
+                        </p>
+
+                        <button
+                            class="primary-btn generate-report"
+                            data-report="performance"
+                            type="button"
+                        >
+                            Generate report →
+                        </button>
+
+                    </article>
+
+
+                    <article class="report-template">
+
+                        <div class="template-icon purple">
+                            ✦
+                        </div>
+
+                        <span class="section-kicker">
+                            INTELLIGENCE
+                        </span>
+
+                        <h2>
+                            Data Investigation Report
+                        </h2>
+
+                        <p>
+                            Focuses on data health, unusual patterns,
+                            products and category-level findings.
+                        </p>
+
+                        <button
+                            class="secondary-btn generate-report"
+                            data-report="investigation"
+                            type="button"
+                        >
+                            Generate report →
+                        </button>
+
+                    </article>
+
+                </div>
+
+
+                <div
+                    id="reportPreview"
+                    class="panel report-preview hidden"
+                >
+
+                    <div class="report-preview-header">
+
+                        <div>
+
+                            <span class="section-kicker">
+                                GENERATED REPORT
+                            </span>
+
+                            <h2>
+                                Retail Intelligence Report
+                            </h2>
+
+                            <p id="reportDate"></p>
+
+                        </div>
+
+                        <div class="report-actions">
+
+                            <button
+                                id="printReportBtn"
+                                class="primary-btn"
+                                type="button"
+                            >
+                                Print / Save PDF
+                            </button>
+
+                            <button
+                                id="downloadCsvBtn"
+                                class="secondary-btn"
+                                type="button"
+                            >
+                                Export CSV
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        id="reportBody"
+                        class="report-body"
+                    ></div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             SETTINGS
+        ====================================================== -->
+
+        <section
+            id="settingsPage"
+            class="page"
+        >
+
+            <div class="page-header">
+
+                <div>
+
+                    <span class="eyebrow">
+                        ACCOUNT
+                    </span>
+
+                    <h1>
+                        Workspace settings
+                    </h1>
+
+                    <p>
+                        Manage your local application preferences.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="settings-grid">
+
+                <div class="panel settings-card">
+
+                    <span class="section-kicker">
+                        PROFILE
+                    </span>
+
+                    <h2 id="settingsName">
+                        User
+                    </h2>
+
+                    <p id="settingsEmail">
+                        user@example.com
+                    </p>
+
+                </div>
+
+
+                <div class="panel settings-card">
+
+                    <span class="section-kicker">
+                        SESSION
+                    </span>
+
+                    <h2>
+                        Secure local session
+                    </h2>
+
+                    <p>
+                        Your authentication token is stored in
+                        browser local storage for this frontend.
+                    </p>
+
+                    <button
+                        id="settingsLogout"
+                        class="secondary-btn"
+                        type="button"
+                    >
+                        Sign out
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</section>
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script src="js/app.js"></script>
+
+</body>
+</html>
